@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+//Give instruction on how to access the result.
+<p>Open the console log (Ctrl + Shift + I in Chrome) to see the results of the POST request. If successful, it returns an object containing data about the newly created user (entered in the request body).</p>
+<button onclick="showResult()">Display the result</button> //The button for seeing the result
+<div id=output></div>
+<script>
+function showResult() {
+fetch('https://reqres.in/api/users?page=2') // For the GET, we want to call the endpoint by making it extract several data in a JSON file from this website.
+.then(res => {   
+if (res.ok) { console.log("The Request of GET is successful") } //This will tell that the resuklt of getting the data is fullfilled and successful
+else { console.log("The request of GET is unsuccessful") } // This will tell that the result of getting the data is not successful 
+return res
+})
+.then(res => res.json()) // To make sure the JSON file from the website is gotten.
+.then(data => console.log(data)) // shows the data that is gotten from the website 'https://reqres.in/api/users?page=2'
+.catch(error => console.log(error)) // handles different types of error like for example if the link is inaccurate like https://r 
+//instead of 'https://reqres.in/api/users?page=2'
+
+}
+</script>
+
+</body>
+</html>
