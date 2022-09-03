@@ -1,13 +1,11 @@
 function showResult() {
-fetch('https://reqres.in/api/users?page=2') // For the GET, we want to call the endpoint by making it extract several data in a JSON file from this website.
-.then(res => {    /* IF statement checks server response: .catch() does not do this! */ 
-if (res.ok) { console.log("The Request is successful") }
-else { console.log("The request is unsuccessful") }
+fetch('https://reqres.in/api/users?page=2') // For the GET, we call the endpoint by making it fetching several data in a JSON file out of this website.
+.then(res => {   
+if (res.ok) { console.log("The Request of GET is successful") } //This will confirm that the result of fetching the data is successful.
+else { console.log("The request of GET is unsuccessful") } // This will confirm that the result of fetching the data is not successful. 
 return res
 })
-.then(res => res.json()) // To make sure the JSON file from the website is gotten.
-.then(data => console.log(data)) // shows the data that is gotten from the website 'https://reqres.in/api/users?page=2'
+.then(res => res.json()) // To make sure the JSON file from the website has successfully been fetched. 
+.then(data => console.log(data)) // shows the data that is fetched from the website 'https://reqres.in/api/users?page=2'
 .catch(error => console.log(error)) // handles different types of error like for example if the link is inaccurate like https://r 
 //instead of 'https://reqres.in/api/users?page=2'
-
-}
